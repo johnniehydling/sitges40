@@ -215,6 +215,27 @@
             margin-top: 2px;
         }
 
+        .sub-list {
+            list-style: none;
+            margin-top: 8px;
+        }
+        .sub-list li {
+            font-size: 13px;
+            color: var(--text-muted);
+            padding: 3px 0 3px 16px;
+            position: relative;
+        }
+        .sub-list li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: var(--terracotta-soft);
+        }
+        .sub-list .sub-label {
+            font-weight: 500;
+            color: var(--text-mid);
+        }
+
         /* ── SHOPPING GRID ───────────────────────────────────────── */
         .shopping-grid {
             display: grid;
@@ -385,7 +406,11 @@
             <div class="timeline-item">
                 <div class="timeline-time">12:15</div>
                 <div class="timeline-title">Avresa Arlanda</div>
-                <div class="timeline-note">Emil flyger från Amsterdam</div>
+                <ul class="sub-list">
+                    <li>Emil flyger från Amsterdam</li>
+                    <li>Bagage under sätet om 40×30×15 cm ingår</li>
+                    <li>Hojta till om ni behöver mera så löser vi det!</li>
+                </ul>
             </div>
 
             <div class="timeline-item">
@@ -401,38 +426,16 @@
             <div class="timeline-item">
                 <div class="timeline-time">18:00</div>
                 <div class="timeline-title">Checka in och packa upp</div>
-                <div class="apt-grid" style="margin-top: 12px;">
-                    <div class="apt-card">
-                        <div class="apt-name">Lägenhet 1</div>
-                        <div class="room-row">
-                            <span class="room-label">Rum 1</span>
-                            <span class="room-guests">Olof &amp; Oscar</span>
-                        </div>
-                        <div class="room-row">
-                            <span class="room-label">Rum 2</span>
-                            <span class="room-guests">Emil</span>
-                        </div>
-                        <div class="room-row">
-                            <span class="room-label">Rum 3</span>
-                            <span class="room-guests">Anna</span>
-                        </div>
-                    </div>
-                    <div class="apt-card">
-                        <div class="apt-name">Lägenhet 2</div>
-                        <div class="room-row">
-                            <span class="room-label">Rum 1</span>
-                            <span class="room-guests">Johannes &amp; Johnnie</span>
-                        </div>
-                        <div class="room-row">
-                            <span class="room-label">Rum 2</span>
-                            <span class="room-guests">Edson</span>
-                        </div>
-                        <div class="room-row">
-                            <span class="room-label">Rum 3</span>
-                            <span class="room-guests">Jonas</span>
-                        </div>
-                    </div>
-                </div>
+                <ul class="sub-list">
+                    <li><span class="sub-label">Lägenhet 1</span></li>
+                    <li>Rum 1 – Olof &amp; Oscar</li>
+                    <li>Rum 2 – Emil</li>
+                    <li>Rum 3 – Anna</li>
+                    <li style="margin-top: 6px;"><span class="sub-label">Lägenhet 2</span></li>
+                    <li>Rum 1 – Johannes &amp; Johnnie</li>
+                    <li>Rum 2 – Edson</li>
+                    <li>Rum 3 – Jonas</li>
+                </ul>
             </div>
 
             <div class="timeline-item">
@@ -440,20 +443,11 @@
                 <div class="timeline-title">
                     <a href="https://maps.app.goo.gl/FR4Scn79AeKqPWmx5" target="_blank" rel="noopener">Handling på Bonpreu ↗</a>
                 </div>
-                <div class="shopping-grid">
-                    <div class="shopping-card">
-                        <div class="shopping-who">Anna &amp; Emil</div>
-                        <div class="shopping-what">Snacks, frukt, bär och proteinshakes</div>
-                    </div>
-                    <div class="shopping-card">
-                        <div class="shopping-who">Edson &amp; Jonas</div>
-                        <div class="shopping-what">Frukost inkl. low kcal och high protein yoghurt/kvarg</div>
-                    </div>
-                    <div class="shopping-card">
-                        <div class="shopping-who">Olof &amp; Oscar</div>
-                        <div class="shopping-what">Vatten, cola zero, cava, vin och öl</div>
-                    </div>
-                </div>
+                <ul class="sub-list">
+                    <li><span class="sub-label">Anna &amp; Emil</span> – snacks, frukt, bär och proteinshakes</li>
+                    <li><span class="sub-label">Edson &amp; Jonas</span> – frukost inkl. low kcal och high protein yoghurt/kvarg</li>
+                    <li><span class="sub-label">Olof &amp; Oscar</span> – vatten, cola zero, cava, vin och öl</li>
+                </ul>
             </div>
 
             <div class="timeline-item">
