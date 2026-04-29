@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitges 40 — 15–19 maj 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream:           #FEFAF3;
+            --sand:            #F4EBDC;
+            --sand-dark:       #EBD9C4;
+            --terracotta:      #C05A34;
+            --terracotta-mid:  #D97044;
+            --terracotta-soft: #F0AA85;
+            --sky:             #6BAFC2;
+            --sky-light:       #C4DDE6;
+            --sky-pale:        #EBF5F8;
+            --text:            #241F1C;
+            --text-mid:        #6B5F56;
+            --text-muted:      #9C8E84;
+            --border:          #E5D7C9;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--cream);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── HERO ────────────────────────────────────────────────── */
+        .hero {
+            background: linear-gradient(150deg, #FAE8D6 0%, #FEF4EA 45%, #D8EDF4 100%);
+            padding: 72px 24px 60px;
+            text-align: center;
+        }
+
+        .hero-eyebrow {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-size: clamp(64px, 14vw, 104px);
+            color: var(--terracotta);
+            line-height: 0.95;
+            margin-bottom: 4px;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--text);
+        }
+
+        .hero-dates {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(20px, 4vw, 28px);
+            font-weight: 400;
+            color: var(--text-mid);
+            margin-top: 16px;
+            letter-spacing: 0.04em;
+        }
+
+        .hero-location {
+            margin-top: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--sky);
+        }
+
+        .hero-rule {
+            width: 40px;
+            height: 2px;
+            background: var(--terracotta-soft);
+            border-radius: 2px;
+            margin: 32px auto 0;
+        }
+
+        /* ── STICKY NAV ──────────────────────────────────────────── */
+        .day-nav {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background: rgba(254, 250, 243, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding: 0 20px;
+            gap: 0;
+        }
+        .day-nav::-webkit-scrollbar { display: none; }
+
+        .day-nav a {
+            flex-shrink: 0;
+            padding: 13px 14px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+            transition: color 0.15s, border-color 0.15s;
+        }
+        .day-nav a:hover {
+            color: var(--terracotta);
+            border-bottom-color: var(--terracotta-soft);
+        }
+
+        /* ── LAYOUT ──────────────────────────────────────────────── */
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .day-section {
+            padding: 56px 0 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ── DAY HEADER ──────────────────────────────────────────── */
+        .day-header {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 36px;
+        }
+        .day-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 38px;
+            font-weight: 600;
+            color: var(--terracotta);
+            line-height: 1;
+        }
+        .day-date {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        /* ── TIMELINE ────────────────────────────────────────────── */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: 10px;
+            bottom: 10px;
+            width: 1px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 28px;
+        }
+        .timeline-item:last-child { padding-bottom: 0; }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 8px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--terracotta-soft);
+        }
+
+        .timeline-time {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+        .timeline-title {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+        }
+        .timeline-title a {
+            color: var(--text);
+            text-underline-offset: 3px;
+            text-decoration-color: var(--terracotta-soft);
+        }
+        .timeline-title a:hover { color: var(--terracotta); }
+
+        .timeline-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* ── SHOPPING GRID ───────────────────────────────────────── */
+        .shopping-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 12px;
+        }
+        @media (max-width: 520px) {
+            .shopping-grid { grid-template-columns: 1fr; }
+        }
+        .shopping-card {
+            background: var(--sand);
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+        .shopping-who {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--terracotta-mid);
+            margin-bottom: 6px;
+        }
+        .shopping-what {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.55;
+        }
+
+        /* ── ACCOMMODATION ───────────────────────────────────────── */
+        .block-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .apt-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        @media (max-width: 480px) {
+            .apt-grid { grid-template-columns: 1fr; }
+        }
+
+        .apt-card {
+            background: var(--sand);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .apt-name {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 14px;
+        }
+        .room-row {
+            display: flex;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--sand-dark);
+        }
+        .room-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .room-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            min-width: 44px;
+            padding-top: 1px;
+            letter-spacing: 0.04em;
+        }
+        .room-guests {
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        /* ── INFO BOX ────────────────────────────────────────────── */
+        .info-box {
+            background: var(--sky-pale);
+            border-radius: 12px;
+            padding: 22px 24px;
+            margin-top: 4px;
+        }
+        .info-box-title {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--sky);
+            margin-bottom: 12px;
+        }
+        .info-list {
+            list-style: none;
+            font-size: 14px;
+            color: var(--text-mid);
+        }
+        .info-list li {
+            padding: 4px 0 4px 20px;
+            position: relative;
+        }
+        .info-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--sky);
+            font-size: 13px;
+        }
+
+        /* ── FOOTER ──────────────────────────────────────────────── */
+        .footer {
+            background: var(--sand);
+            border-top: 1px solid var(--border);
+            padding: 56px 24px 48px;
+            text-align: center;
+        }
+        .footer-main {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-style: italic;
+            color: var(--text-mid);
+            margin-bottom: 8px;
+        }
+        .footer-sub {
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── HERO ────────────────────────────────────────────────────── -->
+<header class="hero">
+    <p class="hero-eyebrow">Välkommen till</p>
+    <h1 class="hero-title">Sitges <em>40</em></h1>
+    <p class="hero-dates">15 – 19 maj 2026</p>
+    <p class="hero-location">Sitges, Spanien</p>
+    <div class="hero-rule"></div>
+</header>
+
+<!-- ── NAV ─────────────────────────────────────────────────────── -->
+<nav class="day-nav">
+    <a href="#fredag">Fredag 15/5</a>
+    <a href="#lordag">Lördag 16/5</a>
+    <a href="#sondag">Söndag 17/5</a>
+    <a href="#mandag">Måndag 18/5</a>
+    <a href="#tisdag">Tisdag 19/5</a>
+    <a href="#info">Info</a>
+</nav>
+
+<main>
+
+<!-- ── FREDAG ──────────────────────────────────────────────────── -->
+<section id="fredag" class="day-section">
+    <div class="container">
+        <div class="day-header">
+            <span class="day-name">Fredag</span>
+            <span class="day-date">15 maj</span>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-time">12:15</div>
+                <div class="timeline-title">Avresa Arlanda</div>
+                <div class="timeline-note">Emil flyger från Amsterdam</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">15:50 – 16:25</div>
+                <div class="timeline-title">Ankomst Barcelona El Prat</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">17:00</div>
+                <div class="timeline-title">Transfer till Sitges</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">18:00</div>
+                <div class="timeline-title">Checka in och packa upp</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">18:30</div>
+                <div class="timeline-title">
+                    <a href="https://maps.app.goo.gl/FR4Scn79AeKqPWmx5" target="_blank" rel="noopener">Handling på Bonpreu ↗</a>
+                </div>
+                <div class="shopping-grid">
+                    <div class="shopping-card">
+                        <div class="shopping-who">Anna &amp; Emil</div>
+                        <div class="shopping-what">Snacks, frukt, bär och proteinshakes</div>
+                    </div>
+                    <div class="shopping-card">
+                        <div class="shopping-who">Edson &amp; Jonas</div>
+                        <div class="shopping-what">Frukost inkl. low kcal och high protein yoghurt/kvarg</div>
+                    </div>
+                    <div class="shopping-card">
+                        <div class="shopping-who">Olof &amp; Oscar</div>
+                        <div class="shopping-what">Vatten, cola zero, cava, vin och öl</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">19:30</div>
+                <div class="timeline-title">Fördrink på takterassen</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">20:00</div>
+                <div class="timeline-title">Middag på Nem Sitges</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">21:30</div>
+                <div class="timeline-title">Drink på gay street</div>
+            </div>
+
+        </div>
+
+        <!-- Boende -->
+        <div style="margin-top: 44px; padding-top: 36px; border-top: 1px solid var(--border);">
+            <h2 class="block-title">Boende</h2>
+            <div class="apt-grid">
+                <div class="apt-card">
+                    <div class="apt-name">Lägenhet 1</div>
+                    <div class="room-row">
+                        <span class="room-label">Rum 1</span>
+                        <span class="room-guests">Olof &amp; Oscar</span>
+                    </div>
+                    <div class="room-row">
+                        <span class="room-label">Rum 2</span>
+                        <span class="room-guests">Emil</span>
+                    </div>
+                    <div class="room-row">
+                        <span class="room-label">Rum 3</span>
+                        <span class="room-guests">Anna</span>
+                    </div>
+                </div>
+                <div class="apt-card">
+                    <div class="apt-name">Lägenhet 2</div>
+                    <div class="room-row">
+                        <span class="room-label">Rum 1</span>
+                        <span class="room-guests">Johannes &amp; Johnnie</span>
+                    </div>
+                    <div class="room-row">
+                        <span class="room-label">Rum 2</span>
+                        <span class="room-guests">Edson</span>
+                    </div>
+                    <div class="room-row">
+                        <span class="room-label">Rum 3</span>
+                        <span class="room-guests">Jonas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ── LÖRDAG ──────────────────────────────────────────────────── -->
+<section id="lordag" class="day-section">
+    <div class="container">
+        <div class="day-header">
+            <span class="day-name">Lördag</span>
+            <span class="day-date">16 maj</span>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-time">09:00 – 11:00</div>
+                <div class="timeline-title">Frukost och träning</div>
+                <div class="timeline-note">För de som vill</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">11:00 – 12:00</div>
+                <div class="timeline-title">Transfer till <a href="https://albetinoya.cat/en/" target="_blank" rel="noopener">Albet i Noya ↗</a></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">12:00 – 14:30</div>
+                <div class="timeline-title">Vinprovning och lunch</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">14:30 – 15:00</div>
+                <div class="timeline-title">Transfer tillbaka till Sitges</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">15:00 – 19:00</div>
+                <div class="timeline-title">Fri lek</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">20:00</div>
+                <div class="timeline-title">Middag på El Pou</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">23:00</div>
+                <div class="timeline-title">Drink på gay street</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── SÖNDAG ──────────────────────────────────────────────────── -->
+<section id="sondag" class="day-section">
+    <div class="container">
+        <div class="day-header">
+            <span class="day-name">Söndag</span>
+            <span class="day-date">17 maj</span>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-time">09:00 – 11:00</div>
+                <div class="timeline-title">Frukost och träning</div>
+                <div class="timeline-note">För de som vill</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">10:00 – 11:00</div>
+                <div class="timeline-title">Visning av Palau de Maricel</div>
+                <div class="timeline-note">För de som vill</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">11:00 – 12:00</div>
+                <div class="timeline-title">Vandring till bögstranden</div>
+                <div class="timeline-note">Stopp för att handla empanadas till lunch</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">19:00</div>
+                <div class="timeline-title">Private chef-middag i lägenheten</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">21:30</div>
+                <div class="timeline-title">
+                    <a href="https://www.instagram.com/amati_sitges/" target="_blank" rel="noopener">Gelato på Amati ↗</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── MÅNDAG ──────────────────────────────────────────────────── -->
+<section id="mandag" class="day-section">
+    <div class="container">
+        <div class="day-header">
+            <span class="day-name">Måndag</span>
+            <span class="day-date">18 maj</span>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-time">09:00 – 11:00</div>
+                <div class="timeline-title">Frukost och träning</div>
+                <div class="timeline-note">För de som vill</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── TISDAG ──────────────────────────────────────────────────── -->
+<section id="tisdag" class="day-section">
+    <div class="container">
+        <div class="day-header">
+            <span class="day-name">Tisdag</span>
+            <span class="day-date">19 maj</span>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-time">08:00 – 09:30</div>
+                <div class="timeline-title">Frukost och träning</div>
+                <div class="timeline-note">För de som vill</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">09:30 – 10:00</div>
+                <div class="timeline-title">Packa och checka ut</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">10:00 – 11:00</div>
+                <div class="timeline-title">Transfer till Barcelona</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── INFO ────────────────────────────────────────────────────── -->
+<section id="info" class="day-section">
+    <div class="container">
+        <div class="day-header">
+            <span class="day-name">Att tänka på</span>
+        </div>
+
+        <div class="info-box">
+            <div class="info-box-title">Packlista</div>
+            <ul class="info-list">
+                <li>Löparkläder om du vill springa på morgonen</li>
+                <li>Skor lämpliga för vandring</li>
+                <li>Ryggsäck</li>
+                <li>Strandfilt</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- ── FOOTER ───────────────────────────────────────────────────── -->
+<footer class="footer">
+    <p class="footer-main">Presenter undanbedes</p>
+    <p class="footer-sub">Vi ses i Sitges</p>
+</footer>
+
+</body>
+</html>
