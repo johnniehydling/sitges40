@@ -177,33 +177,35 @@
         /* ── TIMELINE ────────────────────────────────────────────── */
         .timeline {
             position: relative;
-            padding-left: 28px;
+            padding-left: 44px;
         }
         .timeline::before {
             content: '';
             position: absolute;
-            left: 3px;
-            top: 10px;
-            bottom: 10px;
+            left: 8px;
+            top: 16px;
+            bottom: 16px;
             width: 1px;
             background: var(--border);
         }
 
         .timeline-item {
             position: relative;
-            padding-bottom: 28px;
+            padding-bottom: 32px;
         }
         .timeline-item:last-child { padding-bottom: 0; }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -25px;
-            top: 8px;
-            width: 7px;
-            height: 7px;
+            left: -44px;
+            top: 4px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
-            background: var(--terracotta-soft);
+            background: var(--cream);
+            border: 2px solid var(--terracotta-soft);
+            margin-left: 1px;
         }
 
         .timeline-time {
