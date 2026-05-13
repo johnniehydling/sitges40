@@ -164,6 +164,7 @@
         /* ── DAY HEADER ──────────────────────────────────────────── */
         .day-header {
             display: flex;
+            flex-wrap: wrap;
             align-items: baseline;
             gap: 10px;
             margin-bottom: 36px;
@@ -180,6 +181,15 @@
             font-size: 13px;
             font-weight: 400;
             color: var(--text-muted);
+        }
+        .day-tagline {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-top: 4px;
+            letter-spacing: 0.04em;
         }
 
         /* ── TIMELINE ────────────────────────────────────────────── */
@@ -434,6 +444,7 @@
         <div class="day-header">
             <span class="day-name">Fredag</span>
             <span class="day-date">15 maj</span>
+            <span class="day-tagline">The Arrival</span>
         </div>
 
         <div class="timeline">
@@ -541,6 +552,7 @@
         <div class="day-header">
             <span class="day-name">Lördag</span>
             <span class="day-date">16 maj</span>
+            <span class="day-tagline">The Birthday</span>
         </div>
 
         <div class="timeline">
@@ -600,6 +612,7 @@
         <div class="day-header">
             <span class="day-name">Söndag</span>
             <span class="day-date">17 maj</span>
+            <span class="day-tagline">The Sanctuary</span>
         </div>
 
         <div class="timeline">
@@ -645,6 +658,7 @@
         <div class="day-header">
             <span class="day-name">Måndag</span>
             <span class="day-date">18 maj</span>
+            <span class="day-tagline">The Rehab</span>
         </div>
 
         <div class="timeline">
@@ -683,6 +697,7 @@
         <div class="day-header">
             <span class="day-name">Tisdag</span>
             <span class="day-date">19 maj</span>
+            <span class="day-tagline">The Departure</span>
         </div>
 
         <div class="timeline">
